@@ -1,0 +1,52 @@
+# Set up yazi cwd
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+function fd() {
+  local dir
+  dir=$(find . -type d ! -name .git ! -name node_modules | fzf +m) && cd "$dir"
+}
+
+function open() {
+  local dir
+  dir=$(find . -name 'node_modules' -type d |
+  xargs du -sh |
+  sort -hr |
+  fzf -m --header "Select which one to open:" --preview 'cat $(dirname {})/package.json' |
+  awk '{print $2}' |
+  xargs dirname) && cd "$dir"
+}
+
+
+# aliases
+alias gi="git init"
+alias gcl="git clone"
+alias gclb="git clone --bare"
+
+alias ga="git add"
+alias gap="git add --patch"
+alias gc="git commit"
+alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
+
+alias gf="git fetch --all"
+alias gp="git push"
+alias gu="git pull"
+
+alias gl="git log --oneline --decorate=full -n 40"
+alias gb="git branch -vva"
+alias gr="git remote -v"
+alias gs="git status --short"
+alias gsl="git status --long"
+
+alias gwl="git worktree list"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
+
+alias v="nvim"
+alias neo="NVIM_APPNAME='nvim_test' nvim"
+alias po="poweroff"

@@ -1,0 +1,74 @@
+[user]
+name = KSayanta
+email = 181443436+KSayanta@users.noreply.github.com
+signingkey = BC2AB90EEC930772
+
+[core]
+editor = nvim
+excludesfile = .gitignore
+compression = 9
+
+[init]
+defaultBranch = main
+
+[pull]
+rebase = true
+
+[push]
+autoSetupRemote = true
+
+[status]
+short = true
+branch = true
+
+[fetch]
+prune = true
+
+[worktree]
+guessRemote = true
+
+[merge]
+tool = meld
+
+[diff]
+context = 3
+rename = copies
+interHunkContext = 10
+
+[color "diff"]
+meta = black bold
+frag = magenta
+context = white
+whitespace = yellow reverse
+old = red
+
+[interactive]
+singlekey = true
+
+[commit]
+gpgsign = true
+
+[gpg]
+program = /usr/bin/gpg
+
+[alias]
+# Show a list of all the files that are being tracked.
+show-tracked = ls-tree --name-only -r HEAD
+
+# Stage the file for the next commit, but don't start tracking new files.
+stage = add -u
+
+# Make git aware of the existence of the file, but don't automatically stage
+# it.
+track = add -N
+
+# Unstage the file from the next commit.
+# Will also untrack a file that hasn't been commited once, so watch out!
+unstage = reset --
+
+# Make git unaware of the existence of the file (automatically unstages,
+# since git doesn't know the file anymore)
+untrack = rm --cached
+
+[include]
+path = ~/.gitconfig.local

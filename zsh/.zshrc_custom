@@ -1,0 +1,36 @@
+# keybinds
+bindkey "^ " autosuggest-accept
+bindkey "^p" history-search-backward
+bindkey "^n" history-search-forward
+
+# tmux aliases
+alias -g tss="tmux-session save"
+alias -g tsr="tmux-session restore"
+alias -g tsa="tmux attach -t"
+
+# dwm
+alias -g cdwm="v ~/dwm-btw/config.h"
+alias -g mdwm="cd ~/dwm-btw; sudo make clean install; cd -"
+
+# My nvim app
+alias -g myNvim="NVIM_APPNAME=my-nvim nvim"
+
+# history
+HISTDUP=erase
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+export PATH=~/bin:$PATH
+export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket"
+
+# Stow
+stowth(){
+  stow -vSt ~ $1
+}
+
+# Unstow
+unstow(){
+  stow -vDt ~ $1
+}
