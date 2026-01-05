@@ -4,6 +4,7 @@ local set = vim.o
 vim.g.editorconfig = true
 vim.g.have_nerd_font = true
 vim.g.custom_theme = false
+vim.g.transparent_enabled = true
 
 -- Basic settings
 set.number = true
@@ -32,7 +33,7 @@ set.incsearch = true
 set.inccommand = 'split'
 
 -- Visual settings
-set.winborder = 'rounded'
+-- set.winborder = 'rounded'
 set.termguicolors = true
 set.signcolumn = 'yes'
 set.textwidth = 100

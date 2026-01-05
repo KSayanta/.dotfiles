@@ -5,6 +5,7 @@ return {
     'rebelot/kanagawa.nvim',
     config = function()
       require('kanagawa').setup({
+        transparent = vim.g.transparent_enabled,
         compile = false,
         undercurl = true,
         commentStyle = { italic = true },
@@ -12,10 +13,8 @@ return {
         keywordStyle = { italic = false },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = true,
         dimInactive = false,
         terminalColors = true,
-
         -- add/modify theme and palette colors
         colors = {
           palette = {},
@@ -23,14 +22,10 @@ return {
             wave = {},
             dragon = {},
             all = {
-              ui = {
-                bg_gutter = 'none',
-                border = 'rounded',
-              },
+              ui = { bg_gutter = 'none' },
             },
           },
         },
-
         -- add/modify highlights
         overrides = function(colors)
           local theme = colors.theme
@@ -38,22 +33,13 @@ return {
             NormalFloat = { bg = 'none' },
             FloatBorder = { bg = 'none' },
             FloatTitle = { bg = 'none' },
-
-            -- Popup menu
             Pmenu = { fg = theme.ui.shade0, bg = 'none', blend = vim.o.pumblend },
             PmenuSel = { fg = 'none', bg = theme.ui.bg_p2 },
             PmenuSbar = { bg = theme.ui.bg_m1 },
             PmenuThumb = { bg = theme.ui.bg_p2 },
             PmenuExtra = { bg = 'none' },
             BlinkCmpMenuBorder = { bg = 'none' },
-
-            -- Save an hlgroup with dark background and dimmed foreground
-            -- so that you can use it where your still want darker windows.
-            -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
             NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-
-            -- Popular plugins that open floats will link to NormalFloat by default;
-            -- set their background accordingly if you wish to keep them dark and borderless
             LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
             MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
             TelescopeTitle = { fg = theme.ui.special, bold = true },
@@ -77,7 +63,7 @@ return {
     name = 'folkeTokyonight',
     priority = 1000,
     config = function()
-      local transparent = true
+      local transparent = vim.g.transparent_enabled
       local bg = '#011628'
       local bg_dark = '#011423'
       local bg_highlight = '#143652'
@@ -90,8 +76,7 @@ return {
 
       require('tokyonight').setup({
         style = 'night',
-        transparent = transparent,
-
+        transparent = vim.g.transparent_enabled,
         styles = {
           comments = { italic = false },
           keywords = { italic = false },
@@ -116,6 +101,21 @@ return {
           colors.fg_sidebar = fg_dark
           vim.api.nvim_set_hl(0, 'PmenuExtra', { fg = '#9d7cd8', bg = 'none' })
         end,
+      })
+    end,
+  },
+
+  -- NOTE: Onedark
+  {
+    'olimorris/onedarkpro.nvim',
+    priority = 1000,
+    config = function()
+      require('onedarkpro').setup({
+        options = {
+          transparency = vim.g.transparent_enabled,
+          cursorline = true,
+        },
+        highlights = {},
       })
     end,
   },

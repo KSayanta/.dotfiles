@@ -18,7 +18,7 @@ map('n', '<M-s>', '<cmd>noautocmd w<CR>', opts)
 map('n', 'x', '"_x', opts)
 
 -- Toggle line wrapping
-map('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle Line Wrap' })
+map('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle Line [W]rap' })
 
 -- Keep last yanked when pasting
 map('v', 'p', '"_dP', opts)
