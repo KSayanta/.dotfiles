@@ -5,9 +5,6 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Source the current file
-map('n', '<leader><leader>x', '<cmd>source %<CR>')
-
 -- Disable spacebar key default behaviour in normal and visual mode
 map({ 'n', 'v' }, '<space>', '<Nop>', opts)
 
@@ -53,8 +50,8 @@ map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
 -- File navigation
-map('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'Open [E]xplorer' })
-map('n', '<leader>ff', ':find ', { desc = '[F]ind [F]ile' })
+-- map('n', '<leader>o', ':Explore<CR>', { desc = '[O]pen Explorer' })
+-- map('n', '<leader>ff', ':find ', { desc = '[F]ind [F]ile' })
 
 -- Resize splits with arrows
 map('n', '<C-Up>', ':resize -2<CR>', opts)
@@ -71,7 +68,7 @@ map('n', '<leader>wo', ':tabnew %<CR>', { desc = '[O]pen current buffer in new t
 
 -- Tab management
 map('n', '<leader>wn', ':tabnew<CR>', { desc = '[N]ew Tab' })
-map('n', '<leader>wx', ':tabclose<CR>', { desc = '[X] Close Tab' })
+map('n', '<leader>wc', ':tabclose<CR>', { desc = '[C]lose Tab' })
 map('n', '<leader>w]', ':tabn<CR>', { desc = 'Next Tab' })
 map('n', '<leader>w[', ':tabp<CR>', { desc = 'Prev Tab' })
 

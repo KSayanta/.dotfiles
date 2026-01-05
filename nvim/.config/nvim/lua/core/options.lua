@@ -3,6 +3,7 @@ local set = vim.o
 -- Global settings
 vim.g.editorconfig = true
 vim.g.have_nerd_font = true
+vim.g.custom_theme = false
 
 -- Basic settings
 set.number = true
@@ -42,7 +43,7 @@ set.cmdheight = 1
 set.completeopt = 'menuone,noinsert,noselect'
 set.showmode = false
 set.pumheight = 10
-set.pumblend = 10
+set.pumblend = 30
 set.winblend = 0
 set.conceallevel = 0
 set.concealcursor = ''
