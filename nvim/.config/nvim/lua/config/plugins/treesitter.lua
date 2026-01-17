@@ -1,49 +1,59 @@
+local languages = {
+  'bash',
+  'c',
+  'diff',
+  'html',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'query',
+  'vim',
+  'vimdoc',
+}
+
 return {
+  -- NOTE: Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = 'main',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.config', -- Sets main module to use for opts
-    dependencies = {
-      'windwp/nvim-ts-autotag',
-    },
-    opts = {
-      ensure_installed = {
-        'bash',
-        'c',
-        'diff',
-        'html',
-        'lua',
-        'luadoc',
-        'markdown',
-        'markdown_inline',
-        'query',
-        'vim',
-        'vimdoc',
-      },
-      auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-        disable = function(_, buf)
-          local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(vim.fn.getfsize, vim.api.nvim_buf_get_name(buf))
-          if ok and stats and stats > max_filesize then
-            return true
+    dependencies = { 'windwp/nvim-ts-autotag' },
+    config = function()
+      require('nvim-treesitter').install(languages)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('treesitter.setup', {}),
+        callback = function(args)
+          local buf = args.buf
+          local filetype = args.match
+          local language = vim.treesitter.language.get_lang(filetype) or filetype
+          if not vim.treesitter.language.add(language) then
+            return
           end
+
+          vim.wo.foldmethod = 'expr'
+          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.treesitter.start(buf, language)
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
+      })
+    end,
+  },
+
+  -- NOTE: Autotag
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'InsertEnter',
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false,
       },
-      indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<C-space>',
-          node_incremental = '<C-space>',
-          scope_incremental = false,
-          node_decremental = '<bs>',
-        },
-      },
-      autotag = {
-        enable = true,
+      per_filetype = {
+        html = { enable_close = false },
       },
     },
   },
