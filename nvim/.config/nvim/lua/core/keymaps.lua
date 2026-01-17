@@ -101,8 +101,17 @@ map('i', '<M-h>', '<left>', opts) -- Move Cursor Left
 map('i', '<M-j>', '<down>', opts) -- Move Cursor Down
 map('i', '<M-k>', '<up>', opts) -- Move Cursor Up
 map('i', '<M-l>', '<right>', opts) -- Move Cursor Right
-map('i', '<C-a>', '<Home>', opts) -- Start Of Line
-map('i', '<C-e>', '<End>', opts) -- End Of Line
+map('i', '<M-b>', '<C-o>b', opts) -- Move backwards one word
+map('i', '<M-w>', '<C-o>w', opts) -- Move forwards one word
+map('i', '<M-a>', '<Home>', opts) -- Start of line
+map('i', '<M-e>', '<End>', opts) -- End of line
+map('i', '<M-u>', '<C-o>u', opts) -- Undo
+-- <M-O> - Insert line prev
+-- <M-o> - Insert line next
+-- <C-m> - Carriage Return
+-- <C-w> - Delete one word backwards
+-- <C-h> - Delete one character backwards
+-- <C-u> - Delete full line left of cursor
 
 -- Search current word in brave
 local searching_brave = function()
