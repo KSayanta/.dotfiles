@@ -65,6 +65,7 @@ map('n', '<S-Tab>', ':bprevious<CR>', opts) -- previous buffer
 map('n', '<leader>wd', ':bdelete!<CR>', { desc = '[D]elete Buffer' })
 map('n', '<leader>wb', ':enew <CR>', { desc = '[B]uffer New' })
 map('n', '<leader>wo', ':tabnew %<CR>', { desc = '[O]pen current buffer in new tab' })
+map('n', '<leader>wC', ':%bd|e#|bd#<CR>', { silent = true, desc = '[C]lose all buffers except current one' })
 
 -- Tab management
 map('n', '<leader>wn', ':tabnew<CR>', { desc = '[N]ew Tab' })
