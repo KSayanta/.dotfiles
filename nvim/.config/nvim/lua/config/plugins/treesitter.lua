@@ -1,15 +1,20 @@
 local languages = {
+  'astro',
   'bash',
   'c',
+  'css',
   'diff',
   'html',
+  'json',
   'lua',
   'luadoc',
   'markdown',
   'markdown_inline',
   'query',
+  'svelte',
   'vim',
   'vimdoc',
+  'zig',
 }
 
 return {
@@ -33,9 +38,9 @@ return {
             return
           end
 
+          vim.treesitter.start(buf, language)
           vim.wo.foldmethod = 'expr'
           vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-          vim.treesitter.start(buf, language)
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
       })

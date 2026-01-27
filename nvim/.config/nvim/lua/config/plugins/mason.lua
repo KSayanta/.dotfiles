@@ -1,3 +1,18 @@
+local ensure_installed = {
+  'astro',
+  'css_variables',
+  'cssls',
+  'cssmodules_ls',
+  'emmet_language_server',
+  'html',
+  'lua_ls',
+  'mdx_analyzer',
+  'svelte',
+  'tailwindcss',
+  'ts_ls',
+  'zls',
+}
+
 return {
   'mason-org/mason.nvim',
   lazy = false,
@@ -25,19 +40,7 @@ return {
     mason_lspconfig.setup({
       automatic_enable = false,
       automatic_installation = false,
-      ensure_installed = {
-        'astro',
-        'css_variables',
-        'cssls',
-        'cssmodules_ls',
-        'emmet_language_server',
-        'html',
-        'lua_ls',
-        'mdx_analyzer',
-        'tailwindcss',
-        'ts_ls',
-        'zls',
-      },
+      ensure_installed = ensure_installed,
     })
 
     -- Mason tools install

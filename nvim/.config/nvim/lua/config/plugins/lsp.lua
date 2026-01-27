@@ -1,3 +1,18 @@
+local ensure_enabled = {
+  'astro',
+  'css_variables',
+  'cssls',
+  'cssmodules_ls',
+  'emmet_language_server',
+  'html',
+  'lua_ls',
+  'mdx_analyzer',
+  'svelte',
+  'tailwindcss',
+  'ts_ls',
+  'zls',
+}
+
 return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
@@ -49,18 +64,6 @@ return {
     })
 
     -- Enable servers
-    vim.lsp.enable({
-      'astro',
-      'css_variables',
-      'cssls',
-      'cssmodules_ls',
-      'emmet_language_server',
-      'html',
-      'lua_ls',
-      'mdx_analyzer',
-      'tailwindcss',
-      'ts_ls',
-      'zls',
-    })
+    vim.lsp.enable(ensure_enabled)
   end,
 }
