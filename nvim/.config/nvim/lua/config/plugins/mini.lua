@@ -62,7 +62,8 @@ return {
       options = { permanent_delete = false },
     })
 
-    vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'Open Mini [E]xplorer' })
+    vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'Open Mini [e]xplorer' })
+    vim.keymap.set('n', '<leader>E', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = 'Open Mini [E]xplorer in current file' })
 
     vim.api.nvim_create_autocmd('User', {
       pattern = 'MiniFilesWindowOpen',

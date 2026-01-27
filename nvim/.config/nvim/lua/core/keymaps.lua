@@ -20,6 +20,9 @@ map('n', 'x', '"_x', opts)
 -- Toggle line wrapping
 map('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle Line [W]rap' })
 
+-- Toggle spell check
+map('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = '[T]oggle [S]pell Check' })
+
 -- Keep last yanked when pasting
 map('v', 'p', '"_dP', opts)
 
