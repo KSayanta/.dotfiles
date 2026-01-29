@@ -94,12 +94,6 @@ map('n', '<M-k>', ':m .-2<CR>==', opts)
 map('v', '<M-j>', ":m '>+1<CR>gv=gv", opts)
 map('v', '<M-k>', ":m '<-2<CR>gv=gv", opts)
 
--- Diagnostic keymaps
-map('n', '[d', '<cmd>cprev<CR>', { desc = 'Quickfix prev item' })
-map('n', ']d', '<cmd>cnext<CR>', { desc = 'Quickfix next item' })
-map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
 -- Cursor navigation on insert mode
 map('i', '<M-h>', '<left>', opts) -- Move Cursor Left
 map('i', '<M-j>', '<down>', opts) -- Move Cursor Down
