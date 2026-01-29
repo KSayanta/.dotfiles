@@ -13,23 +13,10 @@ return {
         {
           'KSayanta/friendly-snippets',
           branch = 'test',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-          end,
+          config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
         },
       },
       opts = {},
-    },
-
-    -- Configures Lua LSP for Neovim config, runtime and plugins
-    {
-      'folke/lazydev.nvim',
-      ft = 'lua',
-      opts = {
-        library = {
-          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-        },
-      },
     },
   },
 
@@ -78,11 +65,13 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         snippets = { max_items = 3 },
       },
+      snippets = { preset = 'luasnip' },
+      fuzzy = { implementation = 'lua' },
+      signature = { enabled = false },
       buffer = {
         -- Make buffer compeletions appear at the end.
         score_offset = -100,
@@ -96,25 +85,6 @@ return {
           return vim.tbl_contains(enabled_filetypes, filetype)
         end,
       },
-      --[[ per_filetype = {
-        javascript = { inherit_defaults = false, 'lsp', 'buffer', 'path' },
-        typescript = { inherit_defaults = false, 'lsp', 'buffer', 'path' },
-      }, ]]
     },
-
-    snippets = { preset = 'luasnip' },
-
-    -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-    -- which automatically downloads a prebuilt binary when enabled.
-    --
-    -- By default, we use the Lua implementation instead, but you may enable
-    -- the rust implementation via `'prefer_rust_with_warning'`
-    --
-    -- See :h blink-cmp-config-fuzzy for more information
-    fuzzy = { implementation = 'lua' },
-
-    -- Shows a signature help window while you type arguments for a function
-    -- Toggle with <C-k>
-    signature = { enabled = false },
   },
 }

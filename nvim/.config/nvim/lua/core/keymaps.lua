@@ -112,9 +112,7 @@ map('i', '<M-u>', '<C-o>u', opts) -- Undo
 -- <C-u> - Delete full line left of cursor
 
 -- Search current word in brave
-local searching_brave = function()
-  vim.fn.system({ 'xdg-open', 'https://search.brave.com/search?q=' .. vim.fn.expand('<cword>') })
-end
+local searching_brave = function() vim.fn.system({ 'xdg-open', 'https://search.brave.com/search?q=' .. vim.fn.expand('<cword>') }) end
 map('n', '<leader>?', searching_brave, { desc = 'Search Current Word on Brave Search' })
 
 -- Copy full file path to clipboard
