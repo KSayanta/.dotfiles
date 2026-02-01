@@ -1,74 +1,74 @@
 [user]
-name = KSayanta
-email = 181443436+KSayanta@users.noreply.github.com
-signingkey = BC2AB90EEC930772
+	name = KSayanta
+	email = 181443436+KSayanta@users.noreply.github.com
+	signingkey = BC2AB90EEC930772
 
 [core]
-editor = nvim
-excludesfile = .gitignore
-compression = 9
+	editor = nvim
+	excludesFile = .gitignore
+	compression = 9
 
 [init]
-defaultBranch = main
+	defaultBranch = main
 
 [pull]
-rebase = true
+	rebase = true
 
 [push]
-autoSetupRemote = true
+	autoSetupRemote = true
 
 [status]
-short = true
-branch = true
+	short = true
+	branch = true
 
 [fetch]
-prune = true
+	prune = true
 
 [worktree]
-guessRemote = true
-
-[merge]
-tool = meld
+	guessRemote = true
 
 [diff]
-context = 3
-rename = copies
-interHunkContext = 10
+	context = 3
+	rename = copies
+	interHunkContext = 10
+	tool = nvimdiff
 
 [color "diff"]
-meta = black bold
-frag = magenta
-context = white
-whitespace = yellow reverse
-old = red
+	meta = black bold
+	frag = magenta
+	context = white
+	whitespace = yellow reverse
+	old = red
+
+[merge]
+	tool = nvimdiff
+
+[mergetool "vimdiff"]
+	layout = BASE,MERGED + BASE,LOCAL + BASE,REMOTE
 
 [interactive]
-singlekey = true
+	singlekey = true
 
 [commit]
-gpgsign = true
+	gpgsign = true
 
 [gpg]
-program = /usr/bin/gpg
+	program = /usr/bin/gpg
 
 [alias]
-# Show a list of all the files that are being tracked.
-show-tracked = ls-tree --name-only -r HEAD
-
-# Stage the file for the next commit, but don't start tracking new files.
-stage = add -u
-
-# Make git aware of the existence of the file, but don't automatically stage
-# it.
-track = add -N
-
-# Unstage the file from the next commit.
-# Will also untrack a file that hasn't been commited once, so watch out!
-unstage = reset --
-
-# Make git unaware of the existence of the file (automatically unstages,
-# since git doesn't know the file anymore)
-untrack = rm --cached
+	stage = add -u
+	track = add -N
+	unstage = reset --
+	untrack = rm --cached
+	show-tracked = ls-tree --name-only -r HEAD
 
 [include]
-path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
+
+[lfs]
+	concurrenttransfers = 3
+
+[lfs "customtransfer.xet"]
+	path = git-xet
+	args = transfer
+	concurrent = true
