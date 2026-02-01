@@ -14,12 +14,35 @@ function fd() {
 
 function open() {
   local dir
-  dir=$(find . -name 'node_modules' -type d |
+  local dirList=""
+  local paths=("Projects" "Public/projects")
+
+  for path in "${paths[@]}"; do
+    dirList=$(find "$HOME/$path" -name 'node_modules' -type d):$dirList
+  done
+
+  dir=$(echo "$dirList" |
   xargs du -sh |
   sort -hr |
   fzf -m --header "Select which one to open:" --preview 'cat $(dirname {})/package.json' |
   awk '{print $2}' |
   xargs dirname) && cd "$dir"
+}
+
+function scaffold() {
+  bunx sv create --template minimal \
+    --types ts --add tailwindcss="plugins:typography" \
+    --install bun $1
+}
+
+# Stow
+stowth() {
+  stow -vSt ~ $1
+}
+
+# Unstow
+unstow() {
+  stow -vDt ~ $1
 }
 
 
@@ -49,4 +72,13 @@ alias gwr="git worktree remove"
 
 alias v="nvim"
 alias neo="NVIM_APPNAME='nvim_test' nvim"
-alias po="poweroff"
+
+alias tds="transmission-daemon --logfile ~/.local/log/transmission.log"
+alias trl="transmission-remote --list"
+alias tra="transmission-remote --add"
+alias trsi="transmission-remote --session-info"
+alias trss="transmission-remote --session-stats"
+alias trt="transmission-remote --torrent"
+alias tde="transmission-remote --exit"
+
+alias ytdl="yt-dlp -f 'bv+ba' -o '%(channel)s/%(title)s_[%(id)s].%(ext)s' --js-runtimes node"
