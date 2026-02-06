@@ -30,6 +30,7 @@ return {
       'emmet_language_server',
       'html',
       'lua_ls',
+      'marksman',
       'mdx_analyzer',
       'svelte',
       'tailwindcss',
