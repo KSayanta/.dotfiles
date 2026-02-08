@@ -34,17 +34,11 @@
 	tool = nvimdiff
 
 [color "diff"]
-	meta = black bold
+	meta = cyan bold
 	frag = magenta
 	context = white
 	whitespace = yellow reverse
 	old = red
-
-[merge]
-	tool = nvimdiff
-
-[mergetool "vimdiff"]
-	layout = BASE,MERGED + BASE,LOCAL + BASE,REMOTE
 
 [interactive]
 	singlekey = true
