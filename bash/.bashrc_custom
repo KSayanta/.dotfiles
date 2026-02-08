@@ -1,5 +1,7 @@
+# .bashrc
+
 # Set up yazi cwd
-function y() {
+y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   IFS= read -r -d '' cwd < "$tmp"
@@ -7,29 +9,36 @@ function y() {
   rm -f -- "$tmp"
 }
 
-function fd() {
+fd() {
   local dir
   dir=$(find . -type d ! -name .git ! -name node_modules | fzf +m) && cd "$dir"
 }
 
-function open() {
+open() {
   local dir
   local dirList=""
   local paths=("Projects" "Public/projects")
 
   for path in "${paths[@]}"; do
-    dirList=$(find "$HOME/$path" -name 'node_modules' -type d):$dirList
+    local currDir="$HOME/$path"
+    dirList+=$(find "$currDir" -name .git -or -name node_modules -type d -print -prune)
+    dirList+=$(echo " ")
   done
 
-  dir=$(echo "$dirList" |
-  xargs du -sh |
-  sort -hr |
-  fzf -m --header "Select which one to open:" --preview 'cat $(dirname {})/package.json' |
-  awk '{print $2}' |
-  xargs dirname) && cd "$dir"
+  dir=$(echo "$dirList"\
+    | xargs du -sh\
+    | sort -hr\
+    | fzf +m --header "Select which one to open:"\
+             --preview 'cat $(dirname {2})/package.json'\
+             --preview-label 'package.json'\
+             --preview-window '~3'\
+    | awk '{print $2}'\
+    | xargs dirname)
+
+  cd "$dir"
 }
 
-function scaffold() {
+scaffold() {
   bunx sv create --template minimal \
     --types ts --add tailwindcss="plugins:typography" \
     --install bun $1
