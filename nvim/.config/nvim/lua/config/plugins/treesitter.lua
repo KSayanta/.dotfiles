@@ -27,6 +27,7 @@ return {
     dependencies = { 'windwp/nvim-ts-autotag' },
     config = function()
       require('nvim-treesitter').install(languages)
+      vim.list_extend(languages, { 'typescriptreact', 'javascriptreact' })
       vim.api.nvim_create_autocmd('FileType', {
         pattern = languages,
         callback = function() vim.treesitter.start() end,

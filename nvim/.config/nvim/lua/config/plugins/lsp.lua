@@ -45,7 +45,6 @@ return {
     })
 
     local tools = {
-      'lua-language-server', -- Lua language server
       'stylua', -- Used to format Lua code
       'prettier', -- Used to format HTML, CSS, Javascript
       'prettierd', -- Used to format Javascript
