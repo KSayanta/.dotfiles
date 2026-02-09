@@ -48,9 +48,7 @@ return {
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     },
 
-    appearance = {
-      nerd_font_variant = 'mono',
-    },
+    appearance = { nerd_font_variant = 'mono' },
 
     completion = {
       -- Set `auto_show = true` to show the documentation after a delay.
@@ -64,26 +62,37 @@ return {
       },
     },
 
+    snippets = { preset = 'luasnip' },
+    signature = { enabled = false },
+    fuzzy = { implementation = 'lua' },
+
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+
+      -- Dynamically picking providers by treesitter node/filetype
+      default = function()
+        local success, node = pcall(vim.treesitter.get_node)
+        if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
+          return { 'buffer' }
+        elseif vim.bo.filetype == 'lua' then
+          return { 'lsp', 'path' }
+        else
+          return { 'lsp', 'path', 'snippets', 'buffer' }
+        end
+      end,
+
       providers = {
         snippets = { max_items = 3 },
-      },
-      snippets = { preset = 'luasnip' },
-      fuzzy = { implementation = 'lua' },
-      signature = { enabled = false },
-      buffer = {
+
         -- Make buffer compeletions appear at the end.
-        score_offset = -100,
-        enabled = function()
-          -- Filetypes for which buffer completions are enabled; add filetypes to extend:
-          local enabled_filetypes = {
-            'markdown',
-            'text',
-          }
-          local filetype = vim.bo.filetype
-          return vim.tbl_contains(enabled_filetypes, filetype)
-        end,
+        buffer = {
+          score_offset = -100,
+          enabled = function()
+            -- Filetypes for which buffer completions are enabled; add filetypes to extend:
+            local enabled_filetypes = { 'markdown', 'text' }
+            local filetype = vim.bo.filetype
+            return vim.tbl_contains(enabled_filetypes, filetype)
+          end,
+        },
       },
     },
   },
