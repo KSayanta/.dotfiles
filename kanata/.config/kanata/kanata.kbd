@@ -1,0 +1,30 @@
+;; Kanata configuration
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  tab
+)
+
+(defvar
+  tap-timeout 200
+  hold-timeout 300
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias
+  ;; tap for escape, hold for left control
+  esc-ctrl (tap-hold $tt $ht esc lctrl)
+
+  ;; tap for tab, hold for return
+  tab-return (tap-hold $tt $ht tab ret)
+)
+
+(deflayer base
+  @esc-ctrl
+  @tab-return
+)
