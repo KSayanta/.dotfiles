@@ -6,7 +6,7 @@ return {
   'ggml-org/llama.vim',
   init = function()
     vim.g.llama_config = {
-      keymap_fim_trigger = '<C-space>',
+      keymap_fim_trigger = '<C-e>',
       keymap_fim_accept_full = '<C-f>',
       keymap_fim_accept_line = '<C-L>',
       keymap_fim_accept_word = '<C-]>',
