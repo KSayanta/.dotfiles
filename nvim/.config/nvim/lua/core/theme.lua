@@ -2,6 +2,7 @@ local themes = {
   'kanagawa',
   'tokyonight',
   'onedark',
+  'catppuccin',
 }
 
 local set_default_theme = function()

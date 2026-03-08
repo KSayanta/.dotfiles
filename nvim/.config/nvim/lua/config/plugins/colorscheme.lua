@@ -5,6 +5,8 @@ return {
     'rebelot/kanagawa.nvim',
     config = function()
       require('kanagawa').setup({
+        theme = 'wave',
+        background = { dark = 'wave' },
         transparent = vim.g.transparent_enabled,
         compile = false,
         undercurl = true,
@@ -49,10 +51,6 @@ return {
             TelescopePreviewBorder = { fg = theme.ui.special },
           }
         end,
-        theme = 'wave', -- Load "wave" theme when 'background' option is not set
-        background = { -- map the value of 'background' option to a theme
-          dark = 'wave', -- try "dragon" !
-        },
       })
     end,
   },
@@ -73,9 +71,8 @@ return {
       local fg_dark = '#B4D0E9'
       local fg_gutter = '#627E97'
       local border = '#547998'
-
       require('tokyonight').setup({
-        style = 'night',
+        style = 'moon', -- storm, moon, night, day
         transparent = vim.g.transparent_enabled,
         styles = {
           comments = { italic = false },
@@ -99,7 +96,10 @@ return {
           colors.fg_float = fg
           colors.fg_gutter = fg_gutter
           colors.fg_sidebar = fg_dark
-          vim.api.nvim_set_hl(0, 'PmenuExtra', { fg = '#9d7cd8', bg = 'none' })
+        end,
+        on_highlights = function(hi)
+          hi.MiniTablineCurrent = { bg = '#275378' }
+          hi.PmenuExtra = { fg = '#9d7cd8', bg = 'none' }
         end,
       })
     end,
@@ -107,16 +107,41 @@ return {
 
   -- NOTE: Onedark
   {
-    'olimorris/onedarkpro.nvim',
+    'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-      require('onedarkpro').setup({
-        options = {
-          transparency = vim.g.transparent_enabled,
-          cursorline = true,
+      require('onedark').setup({
+        style = 'warmer', -- dark, darker, cool, deep, warm, warmer, light
+        transparent = vim.g.transparent_enabled,
+        colors = {
+          new_purple = '#7e3992',
+          new_orange = '#ca943a',
         },
-        highlights = {},
+        highlights = {
+          FoldColumn = { bg = 'none' },
+          MiniFilesBorder = { bg = 'none' },
+          MiniFilesNormal = { bg = 'none' },
+          MiniTablineCurrent = { bg = '$new_purple', fg = '$new_orange' },
+          WhichKeyNormal = { bg = 'none' },
+          WhichKeyBorder = { bg = 'none' },
+        },
       })
     end,
   },
+
+  -- NOTE: Catppuccin
+  {
+    'catppuccin/nvim',
+    priority = 1000,
+    name = 'catppuccin',
+    config = function()
+      require('catppuccin').setup({
+        flavour = 'mocha', -- latte, frappe, macchiato, mocha, auto
+        transparent_background = vim.g.transparent_enabled,
+        dim_inactive = { enabled = true },
+      })
+    end,
+  },
+
+  -- NOTE: SolarOsaka
 }
