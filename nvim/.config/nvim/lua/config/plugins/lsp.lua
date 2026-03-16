@@ -4,7 +4,6 @@ return {
     { 'mason-org/mason.nvim', opts = {} },
     'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    'saghen/blink.cmp',
   },
 
   config = function()
@@ -31,7 +30,6 @@ return {
       'html',
       'lua_ls',
       'marksman',
-      'mdx_analyzer',
       'svelte',
       'tailwindcss',
       'ts_ls',
@@ -44,11 +42,12 @@ return {
       ensure_installed = servers,
     })
 
-    local tools = {
+    local ensure_installed = {
       'stylua', -- Used to format Lua code
       'prettier', -- Used to format HTML, CSS, Javascript
       'prettierd', -- Used to format Javascript
       'xmlformatter', -- Used to format xml / svg
+      'gdtoolkit', -- Used to format gdscript
       -- 'eslint_d', -- Used to lint Javascript
       -- 'markdownlint', -- Used to lint Markdown
       -- 'stylelint', -- Used to lint CSS
@@ -56,7 +55,7 @@ return {
       -- 'vale', -- Used to lint text
     }
 
-    require('mason-tool-installer').setup({ ensure_installed = tools })
+    require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
     vim.lsp.enable(servers)
   end,

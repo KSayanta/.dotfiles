@@ -1,9 +1,11 @@
-local languages = {
+local parsers = {
   'astro',
   'bash',
   'c',
   'css',
   'diff',
+  'gdscript',
+  'gdshader',
   'html',
   'javascript',
   'json',

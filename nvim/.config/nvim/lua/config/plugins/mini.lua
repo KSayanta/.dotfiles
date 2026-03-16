@@ -18,7 +18,9 @@ return {
     require('mini.indentscope').setup()
 
     -- NOTE: Notify
-    require('mini.notify').setup()
+    require('mini.notify').setup({
+      lsp_progress = { enable = false },
+    })
 
     -- NOTE: Tabline
     local MiniTabline = require('mini.tabline')
