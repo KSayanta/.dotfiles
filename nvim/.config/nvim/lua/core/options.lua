@@ -4,7 +4,7 @@ local set = vim.o
 vim.g.editorconfig = true
 vim.g.have_nerd_font = true
 vim.g.custom_theme = false
-vim.g.transparent_enabled = true
+vim.g.transparent_enabled = false
 
 -- Basic settings
 set.number = true
