@@ -115,13 +115,13 @@ return {
         transparent = vim.g.transparent_enabled,
         colors = {
           new_purple = '#7e3992',
-          new_orange = '#ca943a',
+          new_white = '#f6f6f6',
         },
         highlights = {
           FoldColumn = { bg = 'none' },
           MiniFilesBorder = { bg = 'none' },
           MiniFilesNormal = { bg = 'none' },
-          MiniTablineCurrent = { bg = '$new_purple', fg = '$new_orange' },
+          MiniTablineCurrent = { bg = '$new_purple', fg = '$new_white' },
           WhichKeyNormal = { bg = 'none' },
           WhichKeyBorder = { bg = 'none' },
         },

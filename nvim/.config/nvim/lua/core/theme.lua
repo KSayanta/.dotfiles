@@ -2,7 +2,7 @@ local themes = {
   'kanagawa',
   'tokyonight',
   'onedark',
-  'catppuccin',
+  'catppuccin-nvim',
 }
 
 local set_default_theme = function()
