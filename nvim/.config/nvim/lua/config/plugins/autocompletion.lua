@@ -12,7 +12,7 @@ return {
         -- Template snippets
         {
           'KSayanta/friendly-snippets',
-          branch = 'test',
+          branch = 'main',
           config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
         },
       },
