@@ -121,4 +121,4 @@ local cp_file_path = function()
   vim.fn.setreg('+', path)
   print('File:', path)
 end
-map('n', '<leader>cp', cp_file_path, { desc = '[C]opy full file [P]ath' })
+map('n', '<leader>wf', cp_file_path, { desc = '[W]orkspace copy [F]ile path' })

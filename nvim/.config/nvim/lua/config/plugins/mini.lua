@@ -77,5 +77,8 @@ return {
         vim.api.nvim_win_set_config(win_id, config)
       end,
     })
+
+    -- NOTE: Colors
+    vim.keymap.set('n', '<leader>tc', ":lua require('mini.colors').interactive()<CR>", { desc = '[T]oggle mini colors interactive' })
   end,
 }
