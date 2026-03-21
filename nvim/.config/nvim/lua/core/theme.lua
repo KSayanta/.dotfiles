@@ -1,8 +1,11 @@
 local themes = {
+  'catppuccin',
+  'gruvbox',
   'kanagawa',
-  'tokyonight',
+  'minisummer',
+  'miniwinter',
   'onedark',
-  'catppuccin-nvim',
+  'tokyonight',
 }
 
 local set_default_theme = function()

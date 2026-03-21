@@ -3,6 +3,7 @@ return {
   -- NOTE: Kanagawa
   {
     'rebelot/kanagawa.nvim',
+    enabled = false,
     config = function()
       require('kanagawa').setup({
         theme = 'wave',
@@ -58,6 +59,7 @@ return {
   -- NOTE: Tokyonight
   {
     'folke/tokyonight.nvim',
+    enabled = false,
     name = 'folkeTokyonight',
     priority = 1000,
     config = function()
@@ -108,6 +110,7 @@ return {
   -- NOTE: Onedark
   {
     'navarasu/onedark.nvim',
+    enabled = false,
     priority = 1000,
     config = function()
       require('onedark').setup({
@@ -132,6 +135,7 @@ return {
   -- NOTE: Catppuccin
   {
     'catppuccin/nvim',
+    enabled = false,
     priority = 1000,
     name = 'catppuccin',
     config = function()
@@ -142,6 +146,4 @@ return {
       })
     end,
   },
-
-  -- NOTE: SolarOsaka
 }
