@@ -11,8 +11,8 @@ set.number = true
 set.relativenumber = true
 set.cursorline = true
 set.wrap = false
-set.scrolloff = 10
-set.sidescrolloff = 8
+set.scrolloff = 8
+set.sidescrolloff = 32
 set.shortmess = 'CFOSWaco'
 set.switchbuf = 'usetab'
 
