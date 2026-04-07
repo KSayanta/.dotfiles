@@ -9,6 +9,7 @@ return {
     spec = {
       { '<leader>t', group = '[T]oggle' },
       { '<leader>w', group = '[W]orkspace' },
+      { '<leader>g', group = '[G] NeoGit' },
       { '<leader>x', group = '[X] Trouble List' },
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>h', group = '[H]unk', mode = { 'n', 'v' } },
