@@ -1,3 +1,5 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   -- NOTE: Gitsigns
   {
@@ -74,11 +76,16 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     cmd = 'Neogit',
-    keys = {
-      { '<leader>g', ':Neogit<CR>', desc = 'Show Neo[G]it UI' },
-    },
+    keys = function()
+      local neogit = require('neogit')
+      return {
+        { '<leader>gg', neogit.open, desc = 'Show Neo[G]it' },
+        { '<leader>gl', neogit.action('log', 'log_current', { '--graph', '--decorate' }), desc = 'NeoGit [L]og' },
+      }
+    end,
     opts = {
       kind = 'floating',
+      graph_style = 'kitty', -- can be: ascii | unicode | kitty
     },
   },
 }
