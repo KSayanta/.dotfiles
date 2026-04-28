@@ -73,8 +73,10 @@ map('n', '<leader>wC', ':%bd|e#|bd#<CR>', { silent = true, desc = '[C]lose all b
 -- Tab management
 map('n', '<leader>wn', ':tabnew<CR>', { desc = '[N]ew Tab' })
 map('n', '<leader>wc', ':tabclose<CR>', { desc = '[C]lose Tab' })
-map('n', '<leader>w]', ':tabn<CR>', { desc = 'Next Tab' })
-map('n', '<leader>w[', ':tabp<CR>', { desc = 'Prev Tab' })
+-- map('n', '<leader>w]', ':tabn<CR>', { desc = 'Next Tab' })
+-- map('n', '<leader>w[', ':tabp<CR>', { desc = 'Prev Tab' })
+map('n', 'H', ':tabp<CR>', opts) -- Prev Tab
+map('n', 'L', ':tabn<CR>', opts) -- Next Tab
 
 -- Window management
 map('n', '<leader>wv', '<C-w>v', { desc = '[V]ertical Split' })
