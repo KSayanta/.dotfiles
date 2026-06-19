@@ -1,5 +1,13 @@
 # .bashrc
 
+# set up ssh
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add ~/.ssh/git/id_ed25519 > /dev/null 2>&1
+
+# set up gpg
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Set up yazi cwd
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
