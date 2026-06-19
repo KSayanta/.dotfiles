@@ -1,5 +1,7 @@
 return {
   on_init = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
       if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
@@ -21,6 +23,7 @@ return {
   end,
   settings = {
     Lua = {
+      format = { enable = false },
       diagnostics = {
         globals = { 'vim' },
         disable = { 'missing-fields' },
