@@ -5,5 +5,11 @@ return {
   event = 'VeryLazy',
   dependencies = { 'nvim-lspconfig', 'nvim-dap', 'nvim-dap-ui', 'nvim-treesitter' },
   ft = { 'gd', 'gdshader', 'gdscript' },
-  config = function() vim.lsp.enable('gdscript') end,
+  config = function()
+    vim.lsp.enable('gdscript')
+    require('godotdev').setup({
+      formatter = 'gdscript-formatter',
+      treesitter = { auto_setup = false },
+    })
+  end,
 }

@@ -38,7 +38,7 @@ return {
       lua = { 'stylua' },
       zig = { 'zig fmt' },
       -- python = { "isort", "black" },
-      gdscript = { 'gdformat' },
+      -- gdscript = { 'gdformat' },
       html = { 'prettier' },
       css = { 'prettier' },
       javascript = { 'prettierd', 'injected' },
