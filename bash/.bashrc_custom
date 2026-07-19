@@ -1,14 +1,17 @@
 # .bashrc
 
-# set up ssh
-eval "$(ssh-agent -s)" > /dev/null
-ssh-add ~/.ssh/git/id_ed25519 > /dev/null 2>&1
+# pnpm
+export PNPM_HOME="/home/raj/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
 
-# set up gpg
+# gpg
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# Set up yazi cwd
+# yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
@@ -92,8 +95,19 @@ ex () {
 }
 
 
-# aliases
+### ALIASES
+
+# Miscellaneous
+alias reload='source ~/.zshrc'
+alias h='history'
+alias v="nvim"
+alias neo="NVIM_APPNAME='nvim_test' nvim"
+alias np="npm"
+alias pn="pnpm"
+
+# Git
 alias gi="git init"
+alias gid="git identity" # identity is git alias
 alias gcl="git clone"
 alias gclb="git clone --bare"
 alias ga="git add"
@@ -103,6 +117,7 @@ alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
 alias gf="git fetch --all"
 alias gp="git push"
 alias gu="git pull"
+alias gui="gitui" # depends on gitui package
 alias gl="git log --oneline --decorate=full -n 40"
 alias gll="git log --oneline --abbrev-commit --date=relative --graph --pretty=format:'%C(auto)%h -%C(auto)%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias gb="git branch -vva"
@@ -114,15 +129,15 @@ alias gwa="git worktree add"
 alias gwab="git worktree add -b"
 alias gwr="git worktree remove"
 
-alias v="nvim"
-alias neo="NVIM_APPNAME='nvim_test' nvim"
-alias np="npm"
-alias pn="pnpm"
-
+# Transmission
 alias tds="transmission-daemon --logfile ~/.local/log/transmission.log"
 alias tde="transmission-remote --exit"
 alias tre="transmission-remote"
 alias trt="transmission-remote --torrent"
 
+# Obsidian
 alias gopen="gocryptfs ~/Database/ObsidianDBCrypt ~/Database/ObsidianDB/notes"
 alias gclose="fusermount3 -u ~/Database/ObsidianDB/notes"
+
+# Ordna
+alias ord="node ~/bin/git_repos/ordna/packages/cli/dist/bin/ordna.js"
