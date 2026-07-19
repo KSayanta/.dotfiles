@@ -1,4 +1,5 @@
 [user]
+	useConfigOnly = true
 	name = KSayanta
 	email = 181443436+KSayanta@users.noreply.github.com
 	signingkey = BC2AB90EEC930772
@@ -46,6 +47,9 @@
 [commit]
 	gpgsign = true
 
+[tag]
+	gpgSign = true
+
 [gpg]
 	program = /usr/bin/gpg
 
@@ -55,9 +59,7 @@
 	unstage = reset --
 	untrack = rm --cached
 	show-tracked = ls-tree --name-only -r HEAD
-
-[include]
-	path = ~/.gitconfig.local
+	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 
 [lfs]
 	concurrenttransfers = 3
@@ -66,3 +68,6 @@
 	path = git-xet
 	args = transfer
 	concurrent = true
+
+[include]
+	path = ~/.gitconfig.local
