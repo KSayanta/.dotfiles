@@ -1,0 +1,3 @@
+---@param repo string
+---@return string
+_G.gh = function(repo) return 'https://github.com/' .. repo end

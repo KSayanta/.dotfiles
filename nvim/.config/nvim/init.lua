@@ -1,3 +1,6 @@
+-- Helpers
+require('core.utils')
+
 -- Options
 require('core.options')
 
@@ -9,9 +12,6 @@ require('core.autocommands')
 
 -- Diagnostics
 require('core.diagnostic')
-
--- Lazy Setup
-require('config.lazy')
 
 -- Theme
 require('core.theme')
