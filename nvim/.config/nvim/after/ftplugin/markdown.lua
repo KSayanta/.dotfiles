@@ -1,5 +1,5 @@
--- Enable spelling, wrap and linebreak for window
-vim.cmd('setlocal spell wrap linebreak')
+-- Enable wrap and linebreak for window
+vim.cmd('setlocal wrap linebreak')
 
 -- Smaller textwidth
 vim.cmd('setlocal textwidth=80')

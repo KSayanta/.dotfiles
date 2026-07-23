@@ -3,7 +3,7 @@
   "runtime.version": "LuaJIT",
   "format.enable": true,
   "diagnostics": {
-    "globals": ["vim"],
+    "globals": ["vim", "MiniFiles", "MiniIcons"],
     "disable": ["missing-fields", "undefined-doc-name"]
   }
 }
