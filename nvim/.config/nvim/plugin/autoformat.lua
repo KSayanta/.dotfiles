@@ -7,7 +7,7 @@ require('conform').setup({
     -- Disable "format_on_save lsp_fallback" for languages that don't
     -- have a well standardized coding style. You can add additional
     -- languages here or re-enable it for the disabled ones.
-    local disable_filetypes = { c = true, cpp = true }
+    local disable_filetypes = { c = true, cpp = true, gdscript = true }
     if disable_filetypes[vim.bo[bufnr].filetype] then
       return nil
     else
@@ -23,25 +23,30 @@ require('conform').setup({
 
   -- External formatters
   formatters_by_ft = {
-    lua = { 'stylua' },
-    zig = { 'zig fmt' },
-    -- python = { "isort", "black" },
-    -- gdscript = { 'gdformat' },
-    html = { 'prettier' },
     css = { 'prettier' },
+    gdscript = { 'gdscript-formatter' },
+    html = { 'prettier' },
     javascript = { 'prettierd', 'injected' },
-    typescript = { 'prettierd', 'injected' },
     javascriptreact = { 'prettierd', 'injected' },
-    typescriptreact = { 'prettierd', 'injected' },
     json = { 'prettier' },
     jsonc = { 'prettier' },
+    lua = { 'stylua' },
     md = { 'prettierd', 'injected' },
     mdx = { 'prettierd', 'injected' },
+    odin = { 'odinfmt' },
     svg = { 'xmlformat' },
+    typescript = { 'prettierd', 'injected' },
+    typescriptreact = { 'prettierd', 'injected' },
     xml = { 'xmlformat' },
+    zig = { 'zig fmt' },
   },
 
   formatters = {
+    odinfmt = {
+      command = 'odinfmt',
+      args = { '-stdin' },
+      stdin = true,
+    },
     injected = {
       options = {
         -- Set to true to ignore errors

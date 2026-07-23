@@ -1,10 +1,8 @@
 local themes = {
   'catppuccin',
-  'gruvbox',
   'kanagawa',
   'minisummer',
   'miniwinter',
-  'onedark',
   'tokyonight',
 }
 
