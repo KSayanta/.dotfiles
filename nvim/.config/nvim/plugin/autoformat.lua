@@ -42,11 +42,11 @@ require('conform').setup({
   },
 
   formatters = {
-    odinfmt = {
-      command = 'odinfmt',
-      args = { '-stdin' },
-      stdin = true,
-    },
+    -- odinfmt = {
+    --   command = 'odinfmt',
+    --   args = { '-stdin' },
+    --   stdin = true,
+    -- },
     injected = {
       options = {
         -- Set to true to ignore errors
