@@ -17,7 +17,6 @@ local servers = {
 local tools = {
   'stylua',
   'prettier',
-  'prettierd',
   'xmlformatter',
   'gdscript-formatter',
   'jsonlint',
