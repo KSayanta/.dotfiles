@@ -10,6 +10,9 @@ require('core.keymaps')
 -- Autocommands
 require('core.autocommands')
 
+-- Usercommands
+require('core.usercommands')
+
 -- Diagnostics
 require('core.diagnostic')
 

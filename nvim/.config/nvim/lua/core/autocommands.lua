@@ -13,7 +13,7 @@ local function run_build(name, cmd, cwd)
 end
 
 -- This autocommand runs after a plugin is installed or updated and runs the appropriate build command for that plugin if necessary.
-vim.api.nvim_create_autocmd('PackChanged', {
+vimapi.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
     local name = ev.data.spec.name
     local kind = ev.data.kind
