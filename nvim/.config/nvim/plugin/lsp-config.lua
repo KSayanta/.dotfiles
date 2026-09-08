@@ -10,7 +10,7 @@ local servers = {
   'ols',
   'svelte',
   'tailwindcss',
-  'tsgo',
+  'tsc',
   'zls',
 }
 
