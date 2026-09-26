@@ -51,13 +51,6 @@ open() {
   cd "$dir"
 }
 
-# Scaffold a project
-scaffold() {
-  bunx sv create --template minimal \
-    --types ts --add tailwindcss="plugins:typography" \
-    --install bun $1
-}
-
 # Stow
 stowth() {
   stow -vSt ~ $1
@@ -135,9 +128,5 @@ alias tde="transmission-remote --exit"
 alias tre="transmission-remote"
 alias trt="transmission-remote --torrent"
 
-# Obsidian
-alias gopen="gocryptfs ~/Database/ObsidianDBCrypt ~/Database/ObsidianDB/notes"
-alias gclose="fusermount3 -u ~/Database/ObsidianDB/notes"
-
 # Ordna
-alias ord="node ~/bin/git_repos/ordna/packages/cli/dist/bin/ordna.js"
+alias todo="node ~/bin/git_repos/ordna/packages/cli/dist/bin/ordna.js"
