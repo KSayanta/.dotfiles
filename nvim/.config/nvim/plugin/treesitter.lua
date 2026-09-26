@@ -6,7 +6,6 @@ local parsers = {
   'diff',
   'gdscript',
   'gdshader',
-  'html',
   'javascript',
   'json',
   'lua',
@@ -23,15 +22,20 @@ local parsers = {
 
 vim.pack.add({
   { src = _G.gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
+  { src = _G.gh('romus204/tree-sitter-manager.nvim') },
 })
 
-require('nvim-treesitter').install(parsers)
+-- require('nvim-treesitter').install(parsers)
 
 require('nvim-treesitter.config').setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+})
+
+require('tree-sitter-manager').setup({
+  ensure_installed = parsers,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
