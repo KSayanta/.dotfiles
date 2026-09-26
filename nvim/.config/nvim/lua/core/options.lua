@@ -52,7 +52,8 @@ set.concealcursor = ''
 set.lazyredraw = true
 set.synmaxcol = 300
 set.fillchars = 'eob: '
-set.listchars = 'extends:…,nbsp:␣,precedes:…,tab:> '
+set.list = false
+set.listchars = 'extends:…,nbsp:␣,precedes:…,tab:>-,eol:↲,space:·'
 
 -- File handling
 set.confirm = true
