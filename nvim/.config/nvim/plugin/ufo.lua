@@ -13,6 +13,7 @@ local ftMap = {
   vim = 'indent',
   org = '',
   git = '',
+  svelte = 'indent',
 }
 
 require('ufo').setup({

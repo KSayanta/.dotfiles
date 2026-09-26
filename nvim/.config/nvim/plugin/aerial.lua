@@ -12,8 +12,9 @@ require('aerial').setup({
   -- This can be a filetype map (see :help aerial-filetype-map)
   backends = { 'lsp', 'treesitter', 'markdown', 'asciidoc', 'man' },
   layout = {
-    max_width = { 40, 0.25 },
-    min_width = 25,
+    -- max_width = { 40, 0.25 },
+    -- min_width = 25,
+    width = 40,
     default_direction = 'prefer_left',
     placement = 'edge',
   },

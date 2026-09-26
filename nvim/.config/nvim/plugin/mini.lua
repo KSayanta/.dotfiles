@@ -51,17 +51,22 @@ MiniTabline.setup({
 -- MINI Surround
 require('mini.surround').setup({
   mappings = {
-    add = 'sa', -- Add surrounding in Normal and Visual modes
-    delete = 'sd', -- Delete surrounding
-    find = 'sf', -- Find surrounding (to the right)
-    find_left = 'sF', -- Find surrounding (to the left)
-    highlight = 'sh', -- Highlight surrounding
-    replace = 'sc', -- Replace surrounding
-    suffix_last = 'l', -- Suffix to search with "prev" method
-    suffix_next = 'n', -- Suffix to search with "next" method
+    add = 'ys', -- Add surrounding in Normal and Visual modes
+    delete = 'ds', -- Delete surrounding
+    -- find = 'sf', -- Find surrounding (to the right)
+    -- find_left = 'sF', -- Find surrounding (to the left)
+    -- highlight = 'sh', -- Highlight surrounding
+    replace = 'cs', -- Replace surrounding
+    -- suffix_last = 'l', -- Suffix to search with "prev" method
+    -- suffix_next = 'n', -- Suffix to search with "next" method
   },
   n_lines = 500,
 })
+-- Remap adding surrounding to Visual mode selection
+vim.keymap.del('x', 'ys')
+vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
+-- Make special mapping for "add surrounding for line"
+vim.keymap.set('n', 'yss', 'ys_', { remap = true })
 
 -- MINI Hipatterns
 require('mini.hipatterns').setup({
