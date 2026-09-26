@@ -1,12 +1,14 @@
 vim.pack.add({
   { src = _G.gh('saghen/blink.cmp'), version = vim.version.range('1.*') },
   { src = _G.gh('L3MON4D3/LuaSnip'), version = vim.version.range('2.*') },
-  { src = _G.gh('KSayanta/friendly-snippets'), branch = 'main' },
+  { src = _G.gh('KSayanta/friendly-snippets'), version = 'addendum' },
 })
 
 require('luasnip').setup()
 
 require('luasnip.loaders.from_vscode').lazy_load()
+
+require('luasnip.loaders.from_snipmate').lazy_load({ paths = { './snippets' } })
 
 require('blink.cmp').setup({
   keymap = {
@@ -63,8 +65,8 @@ require('blink.cmp').setup({
     end,
 
     providers = {
-      snippets = { max_items = 3 },
-
+      snippets = { max_items = 3, score_offset = 100 },
+      lsp = { max_items = 4 },
       -- Make buffer compeletions appear at the end.
       buffer = {
         score_offset = -100,
@@ -76,5 +78,7 @@ require('blink.cmp').setup({
         end,
       },
     },
+    -- End providers
   },
+  -- End sources
 })
