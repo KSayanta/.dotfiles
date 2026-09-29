@@ -23,7 +23,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "friendly-snippets": {
-      "rev": "43a6b1fee00b8124a0537a82f67d03712b3ad592",
+      "rev": "7f1ba7dd3c84abaa852b70d4c94b126159424990",
       "src": "https://github.com/KSayanta/friendly-snippets",
       "version": "'addendum'"
     },
@@ -80,7 +80,7 @@
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-lspconfig": {
-      "rev": "046b1a797af1effe8e0474b9af9657a3761ec58a",
+      "rev": "a9bb4d5f4276aa5cddc015faa3ecc5a7b5a26b14",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -88,7 +88,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "f603a2f4da48728f80257fb5fbb90145fd1dc173",
+      "rev": "25a9b06a09ea4e10712bec37e7b7d9f423262b91",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },

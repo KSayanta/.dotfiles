@@ -2,7 +2,8 @@ vim.pack.add({ _G.gh('folke/which-key.nvim') })
 
 require('which-key').setup({
   delay = 0,
-  preset = 'modern',
+  ---@type false | "classic" | "modern" | "helix"
+  preset = 'helix',
   sort = { 'manual' },
   icons = { mappings = vim.g.have_nerd_font },
   spec = {
