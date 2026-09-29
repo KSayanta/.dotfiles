@@ -1,3 +1,11 @@
+vim.pack.add({
+  { src = _G.gh('neovim/nvim-lspconfig') },
+  { src = _G.gh('mason-org/mason.nvim') },
+  { src = _G.gh('mason-org/mason-lspconfig.nvim') },
+  { src = _G.gh('WhoIsSethDaniel/mason-tool-installer.nvim') },
+  { src = _G.gh('j-hui/fidget.nvim') },
+})
+
 local servers = {
   'astro',
   'css_variables',
@@ -5,7 +13,7 @@ local servers = {
   'cssmodules_ls',
   'emmet_language_server',
   'html',
-  'lua_ls',
+  'emmylua_ls',
   'marksman',
   'ols',
   'svelte',
@@ -22,13 +30,6 @@ local tools = {
   'jsonlint',
 }
 
-vim.pack.add({
-  { src = _G.gh('neovim/nvim-lspconfig') },
-  { src = _G.gh('mason-org/mason.nvim') },
-  { src = _G.gh('mason-org/mason-lspconfig.nvim') },
-  { src = _G.gh('WhoIsSethDaniel/mason-tool-installer.nvim') },
-})
-
 require('mason').setup()
 
 require('mason-lspconfig').setup({
@@ -38,6 +39,8 @@ require('mason-lspconfig').setup({
 })
 
 require('mason-tool-installer').setup({ ensure_installed = tools })
+
+require('fidget').setup({})
 
 vim.lsp.enable(servers)
 

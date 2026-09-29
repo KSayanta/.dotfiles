@@ -1,3 +1,8 @@
+vim.pack.add({
+  { src = _G.gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
+  { src = _G.gh('romus204/tree-sitter-manager.nvim') },
+})
+
 local parsers = {
   'astro',
   'bash',
@@ -20,19 +25,7 @@ local parsers = {
   'zig',
 }
 
-vim.pack.add({
-  { src = _G.gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
-  { src = _G.gh('romus204/tree-sitter-manager.nvim') },
-})
-
--- require('nvim-treesitter').install(parsers)
-
-require('nvim-treesitter.config').setup({
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-})
+require('nvim-treesitter.config').setup()
 
 require('tree-sitter-manager').setup({
   ensure_installed = parsers,
